@@ -27,7 +27,7 @@ class Form extends React.Component {
         <Input
           htmlText="Nome"
           type="text"
-          name="card-name"
+          name="cardName"
           dataTestId="name-input"
           value={ cardName }
           onChange={ onInputChange }
@@ -35,7 +35,7 @@ class Form extends React.Component {
 
         <TextArea
           htmlText="Descrição"
-          name="card-description"
+          name="cardDescription"
           dataTestId="description-input"
           value={ cardDescription }
           onChange={ onInputChange }
@@ -44,7 +44,7 @@ class Form extends React.Component {
         <Input
           htmlText="Attr1"
           type="number"
-          name="card-attr1"
+          name="cardAttr1"
           dataTestId="attr1-input"
           value={ cardAttr1 }
           onChange={ onInputChange }
@@ -53,7 +53,7 @@ class Form extends React.Component {
         <Input
           htmlText="Attr2"
           type="number"
-          name="card-attr2"
+          name="cardAttr2"
           dataTestId="attr2-input"
           value={ cardAttr2 }
           onChange={ onInputChange }
@@ -62,7 +62,7 @@ class Form extends React.Component {
         <Input
           htmlText="Attr3"
           type="number"
-          name="card-attr3"
+          name="cardAttr3"
           dataTestId="attr3-input"
           value={ cardAttr3 }
           onChange={ onInputChange }
@@ -71,7 +71,7 @@ class Form extends React.Component {
         <Input
           htmlText="Imagem"
           type="text"
-          name="card-image"
+          name="cardImage"
           dataTestId="image-input"
           value={ cardImage }
           onChange={ onInputChange }
@@ -79,7 +79,7 @@ class Form extends React.Component {
 
         <Select
           htmlText="Raridade"
-          name="card-rarity"
+          name="cardRare"
           dataTestId="rare-input"
           value={ cardRare }
           onChange={ onInputChange }
@@ -88,7 +88,7 @@ class Form extends React.Component {
         <Checkbox
           htmlText="Super Trybe Trunfo"
           type="checkbox"
-          name="card-trunfo"
+          name="cardTrunfo"
           dataTestId="trunfo-input"
           checked={ cardTrunfo }
           onChange={ onInputChange }
