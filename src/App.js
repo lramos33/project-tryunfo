@@ -2,6 +2,19 @@ import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 
+const initialState = {
+  cardName: '',
+  cardDescription: '',
+  cardAttr1: '0',
+  cardAttr2: '0',
+  cardAttr3: '0',
+  cardImage: '',
+  cardRare: 'normal',
+  cardTrunfo: false,
+  isSaveButtonDisabled: true,
+  deck: [],
+};
+
 class App extends React.Component {
   constructor() {
     super();
@@ -9,21 +22,50 @@ class App extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.validateNumberInputs = this.validateNumberInputs.bind(this);
     this.validateTextInputs = this.validateTextInputs.bind(this);
+    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
 
-    this.state = {
+    this.state = initialState;
+  }
+
+  onSaveButtonClick = () => {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      deck,
+    } = this.state;
+
+    const currentCard = {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    };
+    deck.push(currentCard);
+
+    this.setState({
       cardName: '',
       cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
-    };
+    });
   }
 
-  onInputChange({ target }) {
+  onInputChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
@@ -33,7 +75,7 @@ class App extends React.Component {
     }, () => this.verifyButton());
   }
 
-  validateTextInputs() {
+  validateTextInputs = () => {
     const { cardName, cardDescription, cardImage, cardRare } = this.state;
     const minLength = 0;
 
@@ -47,7 +89,7 @@ class App extends React.Component {
     return true;
   }
 
-  validateNumberInputs() {
+  validateNumberInputs = () => {
     let { cardAttr1, cardAttr2, cardAttr3 } = this.state;
     cardAttr1 = Number(cardAttr1);
     cardAttr2 = Number(cardAttr2);
@@ -70,7 +112,7 @@ class App extends React.Component {
     return true;
   }
 
-  verifyButton() {
+  verifyButton = () => {
     const activeButton = this.validateNumberInputs() && this.validateTextInputs();
     this.setState({ isSaveButtonDisabled: !activeButton });
   }
@@ -92,8 +134,18 @@ class App extends React.Component {
       <div>
         <h1>Tryunfo</h1>
         <Form
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
+          // hasTrunfo={ hasTrunfo }
           onInputChange={ this.onInputChange }
           isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
         <hr />
         <Card
