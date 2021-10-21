@@ -2,19 +2,6 @@ import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 
-const initialState = {
-  cardName: '',
-  cardDescription: '',
-  cardAttr1: '0',
-  cardAttr2: '0',
-  cardAttr3: '0',
-  cardImage: '',
-  cardRare: 'normal',
-  cardTrunfo: false,
-  isSaveButtonDisabled: true,
-  deck: [],
-};
-
 class App extends React.Component {
   constructor() {
     super();
@@ -23,8 +10,29 @@ class App extends React.Component {
     this.validateNumberInputs = this.validateNumberInputs.bind(this);
     this.validateTextInputs = this.validateTextInputs.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+    this.checkTrunfo = this.checkTrunfo.bind(this);
 
-    this.state = initialState;
+    this.state = {
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      hasTrunfo: false,
+      isSaveButtonDisabled: true,
+      deck: [],
+    };
+  }
+
+  checkTrunfo = () => {
+    const { deck } = this.state;
+    const arrayToCheckTrunfo = deck.map((card) => card.cardTrunfo);
+    if (arrayToCheckTrunfo.includes(true)) {
+      this.setState({ hasTrunfo: true });
+    }
   }
 
   onSaveButtonClick = () => {
@@ -63,6 +71,8 @@ class App extends React.Component {
       cardTrunfo: false,
       isSaveButtonDisabled: true,
     });
+
+    this.checkTrunfo();
   }
 
   onInputChange = ({ target }) => {
@@ -127,6 +137,8 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      hasTrunfo,
+      deck,
       isSaveButtonDisabled,
     } = this.state;
 
@@ -142,12 +154,13 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
-          // hasTrunfo={ hasTrunfo }
+          hasTrunfo={ hasTrunfo }
           onInputChange={ this.onInputChange }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
         <hr />
+        <h3>Carta Preview</h3>
         <Card
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -158,6 +171,25 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        <hr />
+        <h3>Lista de cartas</h3>
+        <div>
+          { deck.map((card, index) => (
+            <div key={ index }>
+              <Card
+                cardName={ card.cardName }
+                cardDescription={ card.cardDescription }
+                cardAttr1={ card.cardAttr1 }
+                cardAttr2={ card.cardAttr2 }
+                cardAttr3={ card.cardAttr3 }
+                cardImage={ card.cardImage }
+                cardRare={ card.cardRare }
+                cardTrunfo={ card.cardTrunfo }
+              />
+            </div>
+          )) }
+        </div>
+
       </div>
     );
   }
