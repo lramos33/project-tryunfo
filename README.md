@@ -1,5 +1,7 @@
 <h1 align="center">Project Tryunfo</h1>
 
+<p align="center">⏳ In progress</p>
+
 ## 💻 Instalando o projeto
 
 Clone o repositório:
