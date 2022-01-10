@@ -1,7 +1,5 @@
 <h1 align="center">Project Tryunfo</h1>
 
-<p align="center">⏳ In progress</p>
-
 ## 💻 Instalando o projeto
 
 Clone o repositório:
@@ -42,8 +40,8 @@ Nesse projeto foi desenvolvido um jogo no estilo Super Trunfo! Ao utilizar essa 
 ## ✅ Requisitos do projeto
 
 - [x] 1. Crie o formulário que será usado para adicionar cartas ao baralho;
-- [x] 2. Adicione as props necessárias ao componente de formulário;
-- [x] 3. Crie e renderize o componente Card com as props necessárias;
+- [x] 2. Adicione as `props` necessárias ao componente de formulário;
+- [x] 3. Crie e renderize o componente `Card` com as `props` necessárias;
 - [x] 4. Crie o preview da carta que está sendo criada pelo formulário;
 - [x] 5. Faça a validação do botão de Salvar no formulário;
 - [x] 6. Crie a função do botão salvar;
