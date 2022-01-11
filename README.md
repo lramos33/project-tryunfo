@@ -10,6 +10,12 @@ Clone o repositório:
 git clone git@github.com:lramos33/project-tryunfo.git
 ```
 
+Acesse a pasta do repositório
+
+```
+cd project-tryunfo
+```
+
 Instale as dependências:
 ```
 npm install
