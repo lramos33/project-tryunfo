@@ -55,7 +55,10 @@ Nesse projeto foi desenvolvido um jogo no estilo Super Trunfo! Ao utilizar essa 
 - [x] 6. Crie a função do botão salvar;
 - [x] 7. Crie a validação do Super Trunfo;
 - [x] 8. Exiba a lista de cartas que estão salvas no estado;
-- [ ] 9. Crie um botão para remover uma carta do baralho;
+- [ ] 9. Crie um botão para remover uma carta do baralho.
+
+#### Requisitos bônus:
+
 - [ ] 10. Crie o filtro pelo nome da carta;
 - [ ] 11. Crie o filtro por raridade da carta;
 - [ ] 12. Crie o filtro de Super Trunfo.
