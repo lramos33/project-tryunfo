@@ -65,7 +65,7 @@ Nesse projeto foi desenvolvido um jogo no estilo Super Trunfo! Ao utilizar essa 
 
 - [ ] 9. Crie um botão para remover uma carta do baralho.
 
-#### Requisitos bônus:
+### Requisitos bônus:
 
 - [ ] 10. Crie o filtro pelo nome da carta;
 
